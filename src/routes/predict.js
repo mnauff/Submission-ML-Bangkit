@@ -11,7 +11,7 @@ const { getDataFromFirestore } = require("../controllers/data.controller");
 const firestore = new Firestore();
 
 async function storeData(id, data) {
-  const predictCollection = firestore.collection("prediction");
+  const predictCollection = firestore.collection("predictions");
   return predictCollection.doc(id).set(data);
 }
 
