@@ -14,14 +14,13 @@ const server = http.createServer(app);
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
 async function startServer() {
   try {
     const model = await loadModel();
     app.locals.model = model;
+    app.get("/", (req, res) => {
+      res.send("API is running");
+    });
 
     app.use("/", router());
 
@@ -41,8 +40,8 @@ async function startServer() {
       }
     });
 
-    const port = 5000;
-    server.listen(port, () => {
+    const port = 8080;
+    app.listen(8080, () => {
       console.log(`Server is running on port ${port}`);
     });
   } catch (error) {
