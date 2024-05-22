@@ -33,9 +33,10 @@ async function startServer() {
         });
       } else {
         // For other types of errors, you can provide a generic error response
-        res.status(400).json({
+        res.status(413).json({
           status: "fail",
-          message: "Terjadi kesalahan dalam melakukan prediksi",
+          message:
+            "Payload content length greater than maximum allowed: 1000000",
         });
       }
     });
