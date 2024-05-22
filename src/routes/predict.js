@@ -52,7 +52,7 @@ module.exports = (router) => {
       const data = await getDataFromFirestore();
 
       // Send data as response
-      res.status(201).json({
+      res.status(200).json({
         status: "success",
         data: data,
       });
